@@ -1,0 +1,57 @@
+services:
+  sso_mysql:
+    container_name: "sso_mysql"
+    build: ./mysql
+    env_file: .env
+    networks:
+      - sso
+  sso_redis:
+    container_name: "sso_redis"
+    image: "redis:latest"
+    networks:
+      - sso
+  sso_mailhog:
+    container_name: "sso_mailhog"
+    image: mailhog/mailhog:latest
+    networks:
+      - sso
+  sso_nginx:
+    container_name: "sso_nginx"
+    build: ./nginx
+    volumes_from:
+      - sso_sso
+      - sso_client1
+      - sso_client2
+    volumes:
+      - ./certs:/etc/nginx/certs
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "443:443"
+      - "80:80"
+    networks:
+      - sso
+  sso_sso:
+    container_name: "sso_sso"
+    build: ./sso
+    volumes:
+      - ./sso/src:/srv/sso
+    networks:
+      - sso
+  sso_client1:
+    container_name: "sso_client1"
+    build: ./client1
+    volumes:
+      - ./client1/src:/srv/client1
+    networks:
+      - sso
+  sso_client2:
+    container_name: "sso_client2"
+    build: ./client2
+    volumes:
+      - ./client2/src:/srv/client2
+    networks:
+      - sso
+
+networks:
+  sso:
+    name: "sso-network"
