@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
+
+class TestController extends Controller
+{
+
+    public function __invoke()
+    {
+
+//        Socialite::driver('oauth2')
+
+//        dd(Socialite::driver('oauth2')->userFromToken('eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YTUwNGExNS1jY2Q1LTRjNTMtYmFlYy01ZGQ1ZDFjN2ZkOTkiLCJqdGkiOiJlN2Q3ODZmZDViZjE3Y2U3Nzk5Y2VmZjVmZjdjMjZmYzBjOGUyOTViNTg4ODgxNzM4NDhkMDBhYzA4ZjdkY2I4M2UzN2E2MmJhNWM5NmMzYiIsImlhdCI6MTY5NzA2MDAzOC4wNzA0NzcsIm5iZiI6MTY5NzA2MDAzOC4wNzA0ODQsImV4cCI6MTY5NzA2MDEzOC4wNjczMiwic3ViIjoiMSIsInNjb3BlcyI6WyJ2aWV3LXVzZXIiXX0.hHvEMcraePlHRk0vQ9IrMMYH-tlMrPEkcfp6DPzaMrpNNzpc7w0-T8pl2r99KH-iht5jkkNJubLHLuYI_w94rdtaxC06LJQQ58c0tGtYy7vg2FV5IIlKWlwm-jht2M2Rs1lBUKzJTb7M_gb73SmzAJHY-Uaco-6GPhRDCL4DUeWIR9WEswkMFtFlE3qTTf6_C8AOLadbw4rJasm-ROGVaj1cXyP-_19IlGl4UibxdXaIjQPQK5-kVC84trguWzVY1hF91v1jI7h5pnHVkvS7HrLTAVwqb6y8v3xmIlf8ZJ1aBziyScq4EUnuGl0I-J6-NM73um3HqLS25thnmlzbaoO2PaTlFIWQi2R3YTgYmxJG-yEIbwwesRC0RhvXYWZrMVGrgaDdyrEz2MXglDKgxOiBVqlSlXrjJK9oZvUbSvxAvOLDhT8pl-lOWwZ_fBjYh1rh37Ooy7Gx77cANZyGnEA9DNYVnE8pBx3nzLxcD0pd5lpJcu2nNlu3HjFE1qd5j4IX92VggQ7NVV89qN2Kc0870Z10fYJDKqrrc6YmrXuHdWc6xZH-buqx5kOFfBfz5sLixQThqTqIKn5eEpi0nPvmmMjnFLHbUAo8bi1fv6ZVm7wouJgv4hDTWOOHBethsVv_UQ00S9fHdPznocRGyJlQvuABFpD1xuHmfAUtIUI'));
+        return "test";
+    }
+}

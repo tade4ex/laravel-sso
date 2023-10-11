@@ -3,6 +3,8 @@ services:
     container_name: "sso_mysql"
     build: ./mysql
     env_file: .env
+    ports:
+      - "3306:3306"
     networks:
       - sso
   sso_redis:
@@ -29,7 +31,11 @@ services:
       - "443:443"
       - "80:80"
     networks:
-      - sso
+      sso:
+        aliases:
+          - sso.test
+          - sso-client-1.test
+          - sso-client-2.test
   sso_sso:
     container_name: "sso_sso"
     build: ./sso
@@ -44,6 +50,7 @@ services:
       - ./client1/src:/srv/client1
     networks:
       - sso
+      - default
   sso_client2:
     container_name: "sso_client2"
     build: ./client2
